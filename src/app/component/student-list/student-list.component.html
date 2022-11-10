@@ -1,0 +1,74 @@
+
+
+<table class="table table-striped table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th style='text-align: left'>id </th>
+            <th style='text-align: left'>dni</th>
+            <th style='text-align: left'>lastName</th>
+            <th style='text-align: left'>firstName</th>
+            <th style='text-align: left'>email</th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+        <tbody >
+            <tr *ngFor="let student of studentList ">
+                
+                <td>{{student.id}} </td>
+                <td>{{student.dni}} </td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.firstName}} </td>
+                <td> {{student.email}}</td>
+               <td> <button class="btn btn-success btn-sm"(click) = "view(ver, student)">View</button> </td>
+               <td> <button class="btn btn-danger btn-sm" (click) ="delete(student.id)" > Delete</button> </td>
+            </tr>
+
+
+        </tbody>
+
+
+        <tfoot>
+            
+      <tr>
+      <td></td>
+      <td><input class="form-control" [(ngModel)] ="dni"> </td>
+      <td><input class="form-control" [(ngModel)] ="lastName"> </td>
+      <td><input class="form-control" [(ngModel)] ="firstName"> </td>
+      <td><input class="form-control" [(ngModel)] ="email"> </td>
+      <td colspan="2" style="text-align: center"> <button class="btn btn-success btn-sm" (click)=" save()"> Add</button> </td>
+
+
+
+      </tr>
+
+
+
+
+
+        </tfoot>
+    </table>
+
+    <ng-template #ver let-modal>
+
+<div class="modal-header">
+<button class="close" aria-label="Close" (click)="modal.dismiss()"> X </button>
+</div>
+
+<div class="modal-body">
+    <input class="form-control" [(ngModel)] ="id2"> 
+    <input class="form-control" [(ngModel)] ="dni2"> 
+    <input class="form-control" [(ngModel)] ="lastName2"> 
+    <input class="form-control" [(ngModel)] ="firstName2"> 
+    <input class="form-control" [(ngModel)] ="email2"> 
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-primary"(click)= "modal.close()"> Guardar </button> 
+</div>
+
+
+     
+
+
+    </ng-template>
